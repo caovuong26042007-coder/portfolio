@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Cao Xuân Hùng Vương</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .font-display { font-family: 'Syne', sans-serif; }
+    .font-mono { font-family: 'Space Mono', monospace; }
+    
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .float { animation: float 4s ease-in-out infinite; }
+    
+    @keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(0,255,136,0.3)} 50%{box-shadow:0 0 40px rgba(0,255,136,0.6)} }
+    .glow-accent { animation: glow 3s ease-in-out infinite; }
+
+    .grid-bg {
+      background-image: 
+        linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      position: relative;
+    }
+
+    .grid-bg::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(135deg, rgba(0,255,136,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(139,92,246,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .project-card { transition: all 0.3s ease; position: relative; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,255,136,0.2); }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff88, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    .tech-badge {
+      font-size: 11px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid;
+      font-family: 'Space Mono', monospace;
+      background: rgba(0,255,136,0.1);
+      color: #00ff88;
+      border-color: rgba(0,255,136,0.3);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .corner-accent {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 2px solid;
+      z-index: 0;
+    }
+
+    .corner-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+    .corner-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+  </style>
+</head>
+<body class="h-full">
+  <div id="app" class="h-full w-full overflow-auto grid-bg" style="background-color: #0a0a0f;">
+    
+    <!-- Page 1: Introduction -->
+    <section class="min-h-full px-6 py-20 flex items-center relative overflow-hidden" style="background-color: #0a0a0f;">
+      <div class="corner-accent corner-tl" style="border-color: rgba(0,255,136,0.3);"></div>
+      <div class="corner-accent corner-br" style="border-color: rgba(139,92,246,0.3);"></div>
+      <div class="absolute w-96 h-96 rounded-full opacity-[0.08] top-1/4 -right-48" style="background: radial-gradient(circle, #00ff88, transparent);"></div>
+      <div class="absolute w-80 h-80 rounded-full opacity-[0.06] bottom-1/3 -left-40" style="background: radial-gradient(circle, #8b5cf6, transparent);"></div>
+      <div class="max-w-4xl mx-auto w-full relative z-10">
+        <div class="mb-3">
+          <span class="font-mono text-xs tracking-widest" style="color: #00ff88;">PORTFOLIO DỰ ÁN</span>
+        </div>
+        <!-- Name and Subtitle on Top -->
+        <div class="mb-10">
+          <h1 id="hero-name" class="font-display font-800 text-5xl md:text-7xl mb-6 leading-tight" style="color: #f0f0f0;">Cao Xuân Hùng Vương</h1>
+          <div class="flex items-center gap-4">
+            <div class="h-1 w-16" style="background: linear-gradient(90deg, #00ff88, #8b5cf6);"></div>
+            <span class="font-mono text-sm" style="color: #8b5cf6;">// Sinh viên AI & Khoa học Máy tính</span>
+          </div>
+        </div>
+
+        <!-- Avatar on the Left & Bio on the Right -->
+        <div class="flex flex-col md:flex-row gap-8 items-center md:items-start mb-12">
+          
+          <!-- Avatar (Left) -->
+          <div class="flex-shrink-0 float">
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-xl overflow-hidden glow-accent border-2 p-1" style="border-color: rgba(0,255,136,0.4); background-color: #12121c;">
+              <img src="avt.jpg" alt="Cao Xuân Hùng Vương" class="w-full h-full object-cover rounded-lg">
+            </div>
+          </div>
+
+          <!-- Self-introduction Text (Right) -->
+          <div class="flex-1 w-full">
+            <div class="space-y-8">
+              <div>
+                <h2 class="font-mono text-xs mb-4 tracking-widest" style="color: #00ff88;">&gt; GIỚI THIỆU BẢN THÂN</h2>
+                <div class="h-px mb-4" style="background: linear-gradient(90deg, #00ff88, transparent); opacity: 0.3;"></div>
+                <p id="intro-text" class="font-display text-lg leading-relaxed" style="color: #d1d5db;">Hiện tôi đang theo học tại Trường Đại học Công nghệ (UET) - VNU. Tôi có niềm đam mê lớn với lập trình hướng đối tượng (OOP với Java, Python, C++), toán học chuyên sâu và thiết kế game indie. Ngoài ra, tôi cũng rất thích điện ảnh và thường đi trượt ván vào thời gian rảnh rỗi.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="relative">
+          <div class="absolute -left-4 -top-4 w-2 h-2 bg-gradient-to-br from-cyan-400 to-purple-500 opacity-75"></div>
+          <div class="p-6 rounded-lg" style="background-color: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); border-left: 3px solid #8b5cf6;">
+            <h2 class="font-mono text-xs mb-4 tracking-widest" style="color: #8b5cf6;">&gt; MỤC TIÊU CỦA PORTFOLIO NÀY</h2>
+            <p id="goal-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Trang web này được xây dựng để hệ thống hóa kiến thức kỹ năng số, lưu vết quá trình học tập thực hành với Trí tuệ Nhân tạo, đồng thời làm hồ sơ năng lực trực tuyến phục vụ cho UET Job Fair và các đợt thực tập trong tương lai.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 2: Projects Grid -->
+    <section class="min-h-full px-6 py-20 relative" style="background-color: #0a0a0f;">
+      <div class="max-w-6xl mx-auto w-full relative z-10">
+        <div class="mb-3">
+          <span class="font-mono text-xs tracking-widest" style="color: #00ff88;">02 / BÀI TẬP THÀNH PHẦN</span>
+        </div>
+        <h2 class="font-display font-bold text-5xl mb-4 leading-tight" style="color: #f0f0f0;">Kết quả Học tập</h2>
+        <div class="flex items-center gap-4 mb-12">
+          <div class="h-1 w-16" style="background: linear-gradient(90deg, #00ff88, #8b5cf6);"></div><span class="font-mono text-sm" style="color: #8b5cf6;">6 Projects</span>
+        </div>
+        
+        <div class="absolute top-20 right-0 w-px h-40" style="background: linear-gradient(180deg, #00ff88, transparent);"></div>
+        <div class="absolute bottom-20 left-0 w-40 h-px" style="background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+          <!-- Card 1 -->
+          <div class="group relative p-8 rounded-lg project-card" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style="background: radial-gradient(circle at center, rgba(0,255,136,0.1), transparent); pointer-events: none;"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);">
+                  <i data-lucide="folder" style="width:18px;height:18px;color:#00ff88;"></i>
+                </div>
+                <h3 id="project-1-title" class="font-display font-bold text-xl" style="color: #f0f0f0;">Bài tập 1: Tệp & Thư mục</h3>
+              </div>
+              <p id="project-1-desc" class="font-display text-sm leading-relaxed mb-4" style="color: #9ca3af;">Thiết lập cấu trúc lưu trữ tối ưu và quy tắc đặt tên tệp tin nhất quán cho các tài liệu lập trình, giúp truy xuất nhanh chóng.</p>
+              <div class="flex gap-2 pt-4" style="border-top: 1px solid rgba(0,255,136,0.1);">
+                <!-- DÁN LINK GOOGLE DRIVE CỦA BẠN VÀO Href BÊN DƯỚI -->
+                <a href="https://docs.google.com/document/d/1cGgcCxwSWH6g0UzhEeaR5L5eu8G7Y8QB/edit?usp=drive_link&ouid=109364235871556209193&rtpof=true&sd=true" target="_blank" class="tech-badge hover:opacity-80 transition-opacity cursor-pointer"><i data-lucide="external-link" style="width: 12px; height: 12px; display: inline; margin-right: 6px;"></i>Mở File</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="group relative p-8 rounded-lg project-card" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style="background: radial-gradient(circle at center, rgba(139,92,246,0.1), transparent); pointer-events: none;"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.3);">
+                  <i data-lucide="search" style="width:18px;height:18px;color:#8b5cf6;"></i>
+                </div>
+                <h3 id="project-2-title" class="font-display font-bold text-xl" style="color: #f0f0f0;">Bài tập 2: Tìm kiếm TT</h3>
+              </div>
+              <p id="project-2-desc" class="font-display text-sm leading-relaxed mb-4" style="color: #9ca3af;">Ứng dụng linh hoạt các toán tử tìm kiếm nâng cao và bảng CRAAP để đánh giá độ tin cậy của tài liệu khoa học máy tính.</p>
+              <div class="flex gap-2 pt-4" style="border-top: 1px solid rgba(139,92,246,0.1);">
+                <!-- DÁN LINK GOOGLE DRIVE CỦA BẠN VÀO Href BÊN DƯỚI -->
+                <a href="https://docs.google.com/document/d/1SKlDXURPYDC45_su9WWJvu75b-r71ScY/edit?usp=drive_link&ouid=109364235871556209193&rtpof=true&sd=true" target="_blank" class="tech-badge hover:opacity-80 transition-opacity cursor-pointer" style="background: rgba(139,92,246,0.15); color: #8b5cf6; border-color: rgba(139,92,246,0.4);"><i data-lucide="external-link" style="width: 12px; height: 12px; display: inline; margin-right: 6px;"></i>Mở File</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="group relative p-8 rounded-lg project-card" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style="background: radial-gradient(circle at center, rgba(0,255,136,0.1), transparent); pointer-events: none;"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);">
+                  <i data-lucide="terminal" style="width:18px;height:18px;color:#00ff88;"></i>
+                </div>
+                <h3 id="project-3-title" class="font-display font-bold text-xl" style="color: #f0f0f0;">Bài tập 3: Viết Prompt</h3>
+              </div>
+              <p id="project-3-desc" class="font-display text-sm leading-relaxed mb-4" style="color: #9ca3af;">So sánh sự khác biệt kết quả đầu ra khi giao tiếp với LLM bằng câu lệnh chung chung so với kỹ thuật Prompt Engineering bài bản.</p>
+              <div class="flex gap-2 pt-4" style="border-top: 1px solid rgba(0,255,136,0.1);">
+                <!-- DÁN LINK GOOGLE DRIVE CỦA BẠN VÀO Href BÊN DƯỚI -->
+                <a href="https://docs.google.com/document/d/1s2b0UGhW6mXHeHFVZ2NRmWp6Q5O9jIxD/edit?usp=drive_link&ouid=109364235871556209193&rtpof=true&sd=true" target="_blank" class="tech-badge hover:opacity-80 transition-opacity cursor-pointer"><i data-lucide="external-link" style="width: 12px; height: 12px; display: inline; margin-right: 6px;"></i>Mở File</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="group relative p-8 rounded-lg project-card" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style="background: radial-gradient(circle at center, rgba(139,92,246,0.1), transparent); pointer-events: none;"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.3);">
+                  <i data-lucide="users" style="width:18px;height:18px;color:#8b5cf6;"></i>
+                </div>
+                <h3 id="project-4-title" class="font-display font-bold text-xl" style="color: #f0f0f0;">Bài tập 4: Hợp tác số</h3>
+              </div>
+              <p id="project-4-desc" class="font-display text-sm leading-relaxed mb-4" style="color: #9ca3af;">Sử dụng Trello, Docs và các công cụ quản lý dự án trực tuyến để phối hợp nhịp nhàng, đảm bảo workflow nhóm không bị gián đoạn.</p>
+              <div class="flex gap-2 pt-4" style="border-top: 1px solid rgba(139,92,246,0.1);">
+                <!-- DÁN LINK GOOGLE DRIVE CỦA BẠN VÀO Href BÊN DƯỚI -->
+                <a href="https://docs.google.com/document/d/1lbaHZoDiNpwtY6GnofaycTFcHsBiQNX-/edit?usp=drive_link&ouid=109364235871556209193&rtpof=true&sd=true" target="_blank" class="tech-badge hover:opacity-80 transition-opacity cursor-pointer" style="background: rgba(139,92,246,0.15); color: #8b5cf6; border-color: rgba(139,92,246,0.4);"><i data-lucide="external-link" style="width: 12px; height: 12px; display: inline; margin-right: 6px;"></i>Mở File</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="group relative p-8 rounded-lg project-card" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style="background: radial-gradient(circle at center, rgba(0,255,136,0.1), transparent); pointer-events: none;"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);">
+                  <i data-lucide="cpu" style="width:18px;height:18px;color:#00ff88;"></i>
+                </div>
+                <h3 id="project-5-title" class="font-display font-bold text-xl" style="color: #f0f0f0;">Bài tập 5: AI tạo sinh</h3>
+              </div>
+              <p id="project-5-desc" class="font-display text-sm leading-relaxed mb-4" style="color: #9ca3af;">Dùng AI hỗ trợ viết Script Python tự động phân loại ảnh. Đã tinh chỉnh logic bắt AI đọc trực tiếp metadata để tối ưu chính xác.</p>
+              <div class="flex gap-2 pt-4" style="border-top: 1px solid rgba(0,255,136,0.1);">
+                <!-- DÁN LINK GOOGLE DRIVE CỦA BẠN VÀO Href BÊN DƯỚI -->
+                <a href="https://docs.google.com/document/d/1oJHR8H9dx7JocEYvD5Umenr5QYWxvTBU/edit?usp=drive_link&ouid=109364235871556209193&rtpof=true&sd=true" target="_blank" class="tech-badge hover:opacity-80 transition-opacity cursor-pointer"><i data-lucide="external-link" style="width: 12px; height: 12px; display: inline; margin-right: 6px;"></i>Mở File</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="group relative p-8 rounded-lg project-card" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" style="background: radial-gradient(circle at center, rgba(139,92,246,0.1), transparent); pointer-events: none;"></div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.3);">
+                  <i data-lucide="shield-check" style="width:18px;height:18px;color:#8b5cf6;"></i>
+                </div>
+                <h3 id="project-6-title" class="font-display font-bold text-xl" style="color: #f0f0f0;">Bài tập 6: Đạo đức AI</h3>
+              </div>
+              <p id="project-6-desc" class="font-display text-sm leading-relaxed mb-4" style="color: #9ca3af;">Bộ nguyên tắc cá nhân: Không copy mù quáng. Luôn fact-check thuật toán và các bài toán Giải tích, Vật lý bằng tư duy phản biện.</p>
+              <div class="flex gap-2 pt-4" style="border-top: 1px solid rgba(139,92,246,0.1);">
+                <!-- DÁN LINK GOOGLE DRIVE CỦA BẠN VÀO Href BÊN DƯỚI -->
+                <a href="https://docs.google.com/document/d/1ESL7lA5JrE1es7Xii63TE-P6GNqoMAsz/edit?usp=drive_link&ouid=109364235871556209193&rtpof=true&sd=true" target="_blank" class="tech-badge hover:opacity-80 transition-opacity cursor-pointer" style="background: rgba(139,92,246,0.15); color: #8b5cf6; border-color: rgba(139,92,246,0.4);"><i data-lucide="external-link" style="width: 12px; height: 12px; display: inline; margin-right: 6px;"></i>Mở File</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 3: Summary -->
+    <section class="min-h-full px-6 py-20 relative overflow-hidden" style="background-color: #0a0a0f;">
+      <div class="absolute top-1/2 -right-32 w-64 h-64 rounded-full opacity-[0.05]" style="background: radial-gradient(circle, #00ff88, transparent);"></div>
+      <div class="max-w-5xl mx-auto w-full relative z-10">
+        <div class="mb-3">
+          <span class="font-mono text-xs tracking-widest" style="color: #00ff88;">03 / SUMMARY</span>
+        </div>
+        <h2 class="font-display font-bold text-5xl mb-4 leading-tight" style="color: #f0f0f0;">Tổng kết & Lộ trình</h2>
+        <div class="flex items-center gap-4 mb-12">
+          <div class="h-1 w-16" style="background: linear-gradient(90deg, #00ff88, #8b5cf6);"></div><span class="font-mono text-sm" style="color: #8b5cf6;">Reflection & Future</span>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Reflection -->
+          <div class="group relative p-8 rounded-lg" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute -top-3 left-6">
+              <span class="font-mono text-xs px-3 py-1 rounded-full" style="background-color: #0a0a0f; color: #00ff88; border: 1px solid rgba(0,255,136,0.3);">REFLECTION</span>
+            </div>
+            <div class="pt-4">
+              <h3 class="font-mono text-sm mb-6 tracking-widest" style="color: #00ff88;">&gt; Cảm nhận tổng kết</h3>
+              <p id="reflection-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Qua dự án này, tôi nhận ra sử dụng công nghệ số không chỉ là biết dùng công cụ, mà là sử dụng có chiến lược và đạo đức. Bài học lớn nhất là học cách điều khiển AI phục vụ ý đồ của mình thay vì bị lệ thuộc vào nó, đặc biệt trong việc debug và xử lý logic code.</p>
+            </div>
+            <div class="absolute bottom-4 right-4 text-4xl opacity-10" style="color: #00ff88;">
+              <i data-lucide="lightbulb" style="width:32px;height:32px;"></i>
+            </div>
+          </div>
+          
+          <!-- Future -->
+          <div class="group relative p-8 rounded-lg" style="background-color: #12121c; border: 1px solid #1a1a2e;">
+            <div class="absolute -top-3 right-6">
+              <span class="font-mono text-xs px-3 py-1 rounded-full" style="background-color: #0a0a0f; color: #8b5cf6; border: 1px solid rgba(139,92,246,0.3);">ROADMAP</span>
+            </div>
+            <div class="pt-4">
+              <h3 class="font-mono text-sm mb-6 tracking-widest" style="color: #8b5cf6;">&gt; Lộ trình tương lai</h3>
+              <p id="future-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Mục tiêu sắp tới của tôi là duy trì thành tích học tập tốt ở các kỳ tiếp theo. Đồng thời, tôi sẽ áp dụng các kỹ năng số này vào việc tự học sâu hơn về hệ thống Backend, thuật toán, và xây dựng các dự án công nghệ mang tính ứng dụng cao.</p>
+            </div>
+            <div class="absolute bottom-4 right-4 text-4xl opacity-10" style="color: #8b5cf6;">
+              <i data-lucide="rocket" style="width:32px;height:32px;"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-16 pt-8" style="border-top: 1px solid rgba(0,255,136,0.1);">
+          <p class="font-mono text-xs text-center tracking-widest" style="color: rgba(0,255,136,0.5);">✦ END OF PORTFOLIO ✦</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+  // Script config (Đã được cập nhật khớp với HTML ở trên)
+  const defaultConfig = {
+    student_name: 'Cao Xuân Hùng Vương',
+    introduction_text: 'Xin chào, mình là Cao Xuân Hùng Vương. Hiện mình đang là sinh viên chuyên ngành Khoa học Máy tính tại Trường Đại học Công nghệ (UET) - VNU.  Mình có niềm đam mê lớn với lập trình hướng đối tượng (OOP với Java, Python, C++), toán học, thiết kế game indie và điện ảnh. Khi rời xa màn hình máy tính, bạn có thể tìm thấy mình ở công viên cùng chiếc ván trượt.',
+    goal_text: 'Trang Portfolio này không chỉ là một yêu cầu của môn học, mà là không gian để mình có thể hệ thống hóa và lưu vết sự trưởng thành trong "năng lực số" của bản thân. Mục tiêu lớn nhất của mình là hướng tới hình ảnh một kỹ sư phần mềm biết khai thác tối đa sức mạnh của AI để tự động hóa quy trình, nhưng vẫn duy trì được tư duy phản biện sắc bén',
+    project_1_title: 'Bài tập 1 - Bài 1: Máy tính và các thiết bị ngoại vi',
+    project_1_desc: 'Thực hành các thao tác cốt lõi trên hệ điều hành (tạo, sao chép, di chuyển, xóa) để xây dựng kỹ năng tổ chức và quản lý không gian làm việc số khoa học.',
+    project_2_title: 'Bài tập 2 - Bài 2: Khai thác dữ liệu và thông tin',
+    project_2_desc: 'Khai thác các cơ sở dữ liệu học thuật, thu thập tài liệu chuyên ngành và áp dụng các tiêu chí chuẩn mực để đánh giá độ tin cậy của nguồn thông tin.',
+    project_3_title: 'Bài tập 2 - Bài 3: Tổng quan về trí tuệ nhân tạo',
+    project_3_desc: 'Thiết kế và thử nghiệm nhiều cấp độ câu lệnh (cơ bản, cải tiến, nâng cao) khi giao tiếp với LLM, từ đó rút ra bộ nguyên tắc tối ưu hóa kết quả AI.',
+    project_4_title: 'Bài tập 3 - Bài 4: Giao tiếp và hợp tác trong môi trường số',
+    project_4_desc: 'Thiết lập và vận hành quy trình làm việc thông qua hệ sinh thái công cụ trực tuyến (quản lý dự án, soạn thảo chung, giao tiếp) để đảm bảo tiến độ công việc',
+    project_5_title: 'Bài tập 2 - Bài 5: Sáng tạo nội dung số',
+    project_5_desc: 'Tích hợp phối hợp nhiều công cụ AI tạo sinh (văn bản, hình ảnh, thiết kế) vào quá trình làm dự án, kết hợp tư duy tinh chỉnh của con người để hoàn thiện sản phẩm số.',
+    project_6_title: 'Bài tập 4 - Bài 6: An toàn và liêm chính học thuật trong môi trường số',
+    project_6_desc: 'Nghiên cứu ranh giới giữa hỗ trợ học thuật và gian lận, từ đó đúc kết và xây dựng bộ nguyên tắc đạo đức cá nhân khi ứng dụng Trí tuệ Nhân tạo.',
+    reflection_text: 'Qua dự án này, mình nhận ra sử dụng công nghệ số không chỉ là biết dùng công cụ, mà là sử dụng có chiến lược và đạo đức. Bài học lớn nhất là học cách điều khiển AI phục vụ ý đồ, mục đích của mình thay vì bị lệ thuộc vào nó.',
+    future_text: 'Mục tiêu sắp tới của mình là duy trì thành tích học tập tốt ở các kỳ tiếp theo. Đồng thời, tôi sẽ áp dụng các kỹ năng số này vào cuộc sống để có thể tối ưu hóa mọi việc bằng AI.'
+  };
+  
+  function applyConfig(c) {
+    document.getElementById('hero-name').textContent = c.student_name;
+    document.getElementById('intro-text').textContent = c.introduction_text;
+    document.getElementById('goal-text').textContent = c.goal_text;
+    for (let i = 1; i <= 6; i++) {
+        const titleEl = document.getElementById(`project-${i}-title`);
+        const descEl = document.getElementById(`project-${i}-desc`);
+        if (titleEl) titleEl.textContent = c[`project_${i}_title`];
+        if (descEl) descEl.textContent = c[`project_${i}_desc`];
+    }
+    document.getElementById('reflection-text').textContent = c.reflection_text;
+    document.getElementById('future-text').textContent = c.future_text;
+    }
+
+    // Gọi hàm chạy ngay khi tải trang xong
+    applyConfig(defaultConfig);
+
+    // Render các Icon Lucide
+    lucide.createIcons();
+
+  // Render các Icon Lucide
+  lucide.createIcons();
+  </script>
+</body>
+</html>
