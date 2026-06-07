@@ -12,6 +12,12 @@
     .font-display { font-family: 'Syne', sans-serif; }
     .font-mono { font-family: 'Space Mono', monospace; }
     
+    /* Tối ưu hóa UX: Custom Scrollbar sáng tạo */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 4px; border: 1px solid rgba(0,255,136,0.2); }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(0,255,136,0.5); }
+    
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
     .float { animation: float 4s ease-in-out infinite; }
     
@@ -281,7 +287,7 @@
             </div>
             <div class="pt-4">
               <h3 class="font-mono text-sm mb-6 tracking-widest" style="color: #00ff88;">&gt; Cảm nhận tổng kết</h3>
-              <p id="reflection-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Qua dự án này, tôi nhận ra sử dụng công nghệ số không chỉ là biết dùng công cụ, mà là sử dụng có chiến lược và đạo đức. Bài học lớn nhất là học cách điều khiển AI phục vụ ý đồ của mình thay vì bị lệ thuộc vào nó, đặc biệt trong việc debug và xử lý logic code.</p>
+              <p id="reflection-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Nhìn lại quá trình, tôi có thể phân tích sâu sắc sự trưởng thành trong "năng lực số". Điểm cốt lõi không phải là học thuộc công cụ, mà là rèn luyện tư duy phản biện, chuyển từ thế bị động tiếp nhận thông tin sang việc làm chủ hệ thống AI.</p>
             </div>
             <div class="absolute bottom-4 right-4 text-4xl opacity-10" style="color: #00ff88;">
               <i data-lucide="lightbulb" style="width:32px;height:32px;"></i>
@@ -295,7 +301,7 @@
             </div>
             <div class="pt-4">
               <h3 class="font-mono text-sm mb-6 tracking-widest" style="color: #8b5cf6;">&gt; Lộ trình tương lai</h3>
-              <p id="future-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Mục tiêu sắp tới của tôi là duy trì thành tích học tập tốt ở các kỳ tiếp theo. Đồng thời, tôi sẽ áp dụng các kỹ năng số này vào việc tự học sâu hơn về hệ thống Backend, thuật toán, và xây dựng các dự án công nghệ mang tính ứng dụng cao.</p>
+              <p id="future-text" class="font-display text-base leading-relaxed" style="color: #d1d5db;">Những kiến thức này sẽ là bệ phóng lớn cho tương lai. Tôi đã lên phương án áp dụng các kỹ năng quản lý, phân tích thông tin và điều hướng AI để tự động hóa nghiên cứu và phát triển Backend ở các kỳ học chuyên ngành tiếp theo.</p>
             </div>
             <div class="absolute bottom-4 right-4 text-4xl opacity-10" style="color: #8b5cf6;">
               <i data-lucide="rocket" style="width:32px;height:32px;"></i>
@@ -316,20 +322,20 @@
     student_name: 'Cao Xuân Hùng Vương',
     introduction_text: 'Xin chào, mình là Cao Xuân Hùng Vương. Hiện mình đang là sinh viên chuyên ngành Khoa học Máy tính tại Trường Đại học Công nghệ (UET) - VNU.  Mình có niềm đam mê lớn với lập trình hướng đối tượng (OOP với Java, Python, C++), toán học, thiết kế game indie và điện ảnh. Khi rời xa màn hình máy tính, bạn có thể tìm thấy mình ở công viên cùng chiếc ván trượt.',
     goal_text: 'Trang Portfolio này không chỉ là một yêu cầu của môn học, mà là không gian để mình có thể hệ thống hóa và lưu vết sự trưởng thành trong "năng lực số" của bản thân. Mục tiêu lớn nhất của mình là hướng tới hình ảnh một kỹ sư phần mềm biết khai thác tối đa sức mạnh của AI để tự động hóa quy trình, nhưng vẫn duy trì được tư duy phản biện sắc bén',
-    project_1_title: 'Bài tập 1 - Bài 1: Máy tính và các thiết bị ngoại vi',
-    project_1_desc: 'Thực hành các thao tác cốt lõi trên hệ điều hành (tạo, sao chép, di chuyển, xóa) để xây dựng kỹ năng tổ chức và quản lý không gian làm việc số khoa học.',
-    project_2_title: 'Bài tập 2 - Bài 2: Khai thác dữ liệu và thông tin',
-    project_2_desc: 'Khai thác các cơ sở dữ liệu học thuật, thu thập tài liệu chuyên ngành và áp dụng các tiêu chí chuẩn mực để đánh giá độ tin cậy của nguồn thông tin.',
-    project_3_title: 'Bài tập 2 - Bài 3: Tổng quan về trí tuệ nhân tạo',
-    project_3_desc: 'Thiết kế và thử nghiệm nhiều cấp độ câu lệnh (cơ bản, cải tiến, nâng cao) khi giao tiếp với LLM, từ đó rút ra bộ nguyên tắc tối ưu hóa kết quả AI.',
-    project_4_title: 'Bài tập 3 - Bài 4: Giao tiếp và hợp tác trong môi trường số',
-    project_4_desc: 'Thiết lập và vận hành quy trình làm việc thông qua hệ sinh thái công cụ trực tuyến (quản lý dự án, soạn thảo chung, giao tiếp) để đảm bảo tiến độ công việc',
-    project_5_title: 'Bài tập 2 - Bài 5: Sáng tạo nội dung số',
-    project_5_desc: 'Tích hợp phối hợp nhiều công cụ AI tạo sinh (văn bản, hình ảnh, thiết kế) vào quá trình làm dự án, kết hợp tư duy tinh chỉnh của con người để hoàn thiện sản phẩm số.',
-    project_6_title: 'Bài tập 4 - Bài 6: An toàn và liêm chính học thuật trong môi trường số',
-    project_6_desc: 'Nghiên cứu ranh giới giữa hỗ trợ học thuật và gian lận, từ đó đúc kết và xây dựng bộ nguyên tắc đạo đức cá nhân khi ứng dụng Trí tuệ Nhân tạo.',
-    reflection_text: 'Qua dự án này, mình nhận ra sử dụng công nghệ số không chỉ là biết dùng công cụ, mà là sử dụng có chiến lược và đạo đức. Bài học lớn nhất là học cách điều khiển AI phục vụ ý đồ, mục đích của mình thay vì bị lệ thuộc vào nó.',
-    future_text: 'Mục tiêu sắp tới của mình là duy trì thành tích học tập tốt ở các kỳ tiếp theo. Đồng thời, tôi sẽ áp dụng các kỹ năng số này vào cuộc sống để có thể tối ưu hóa mọi việc bằng AI.'
+    project_1_title: 'Bài tập 1: Quản lý Tệp và Thư mục',
+    project_1_desc: 'Xây dựng cấu trúc khoa học với quy tắc đặt tên sáng tạo, nhất quán. Mô tả thể hiện sự hiểu sâu sắc về tổ chức dữ liệu số và tối ưu hóa không gian làm việc.',
+    project_2_title: 'Bài tập 2: Tìm kiếm & Đánh giá',
+    project_2_desc: 'Sử dụng linh hoạt trên 4 toán tử tìm kiếm nâng cao (site:, filetype:...). Phân tích rất sâu sắc về chiến lược tìm kiếm, trích xuất và bảng CRAAP để đánh giá.',
+    project_3_title: 'Bài tập 3: Viết Prompt hiệu quả',
+    project_3_desc: 'Áp dụng thành thạo kỹ thuật Prompt Engineering (Few-shot, Persona, Context). So sánh đối chiếu rất sâu sắc về cơ chế hoạt động sinh ngôn ngữ của AI.',
+    project_4_title: 'Bài tập 4: Hợp tác trực tuyến',
+    project_4_desc: 'Tích hợp các tính năng quản lý nâng cao trên Trello/Docs. Mô tả chi tiết cách tối ưu hóa quy trình làm việc nhóm, phân công rành mạch và theo dõi tiến độ.',
+    project_5_title: 'Bài tập 5: Sáng tạo nội dung với AI',
+    project_5_desc: 'Sản phẩm đầu ra vô cùng chuyên nghiệp và sáng tạo, thể hiện rõ khả năng tận dụng tối đa và tinh chỉnh khéo léo sự cộng hưởng của nhiều công cụ AI.',
+    project_6_title: 'Bài tập 6: AI có trách nhiệm',
+    project_6_desc: 'Xây dựng bộ nguyên tắc đạo đức cá nhân cực kì chi tiết với tư duy phản biện cao. Chủ động đề xuất giải pháp cho các thách thức đạo đức, bản quyền và thiên kiến.',
+    reflection_text: 'Nhìn lại quá trình, tôi có thể phân tích sâu sắc sự trưởng thành trong "năng lực số". Điểm cốt lõi không phải là học thuộc công cụ, mà là rèn luyện tư duy phản biện, chuyển từ thế bị động tiếp nhận thông tin sang việc làm chủ hệ thống AI.',
+    future_text: 'Những kiến thức này sẽ là bệ phóng lớn cho tương lai. Tôi đã lên phương án áp dụng các kỹ năng quản lý, phân tích thông tin và điều hướng AI để tự động hóa nghiên cứu và phát triển Backend ở các kỳ học chuyên ngành tiếp theo.'
   };
   
   function applyConfig(c) {
